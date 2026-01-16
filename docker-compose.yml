@@ -1,0 +1,17 @@
+services:
+  agent-zero:
+    image: frdel/agent-zero:latest
+    container_name: agent-zero
+    restart: unless-stopped
+
+    ports:
+      - "5000:80"
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./data:/data
+
+    tty: true
+    stdin_open: true
